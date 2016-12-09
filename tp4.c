@@ -37,14 +37,13 @@ return liste;
 
 Tranche *ajoutTranche(Tranche *racine , int borneSup){
 
-    printf("FQFB1");
+
     Tranche *y = NULL;
-    if (racine != NULL)
-        Tranche *x = racine;
+    Tranche *x = racine;
     Tranche *z = nouvelleTranche(borneSup);
 
+if (racine != NULL) {
     while ( x->borneSup != NULL) {
-        printf("FQFB2");
         y=x;
         if (z->borneSup < x->borneSup)
             x=x->filsG;
@@ -53,22 +52,20 @@ Tranche *ajoutTranche(Tranche *racine , int borneSup){
         else
             x=x->filsD;
     }
-
+}
     z->pere = y;
 
 
     if (y == NULL ){
-        printf("FQFB3");
-        x=z;
+       return z;
     }
     else {
-            printf("FQFB4");
+
         if (z->borneSup < y->borneSup)
             y->filsG=z;
         else
             y->filsD=z;
 
          }
-
 return z;
 }
